@@ -6,10 +6,6 @@
 :: If files does not exist, script wont update Sysmon
 setlocal enableextensions enabledelayedexpansion
 
-:: Uncomment next line and specify IP, Share, Username and Password if you want to specify user access
-net use \\192.168.1.15\tools\sysmon /d
-net use \\192.168.1.15\tools\sysmon "1Xp5zx45fZ224BxRjeZJdWIV" /user:demodomain\sysmonuser
-
 :: Set file server IP
 set _server=192.168.1.15
 :: Set folder location [Remember to add "\" at the end]
@@ -18,6 +14,11 @@ set _shared=\tools\sysmon\
 set _customcfg=sysmon.conf
 :: Set Temp folder to use
 set _tempy=%systemroot%\system32\eventsentry\temp
+
+:: Uncomment next line and specify IP, Share, Username and Password if you want to specify user access
+net use \\%_Server%%share% /d
+net use \\%_Server%%share% "1Xp5zx45fZ224BxRjeZJdWIV" /user:demodomain\sysmonuser
+
 :: Check if Sysmon service is installed
 sc.exe qc Sysmon 2> nul >nul
 
@@ -186,3 +187,4 @@ IF %_os_bitness% == 64 (
 )
 :EOF
 :: Dismounting
+net use \\%_Server%%share% /d

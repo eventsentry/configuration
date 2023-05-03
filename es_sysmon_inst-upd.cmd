@@ -7,11 +7,11 @@
 setlocal enableextensions enabledelayedexpansion
 
 :: Uncomment next line and specify IP, Share, Username and Password if you want to specify user access
-net use \\172.21.2.60\tools\sysmon /d
-net use \\172.21.2.60\tools\sysmon "1Xp5zx45fZ214BxAjeZFdWIV" /user:netikus\eventsentry_sysmon
+net use \\192.168.1.15\tools\sysmon /d
+net use \\192.168.1.15\tools\sysmon "1Xp5zx45fZ224BxRjeZJdWIV" /user:demodomain\sysmonuser
 
 :: Set file server IP
-set _server=172.21.2.60
+set _server=192.168.1.15
 :: Set folder location [Remember to add "\" at the end]
 set _shared=\tools\sysmon\
 :: Set custom configuration file, leave it blank for no custom config. This script will grab the config from the same shared folder of the Sysmon installer
